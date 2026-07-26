@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DiagnosED — Experience. Reflect. Grow.</title>
+<meta name="description" content="DiagnosED helps healthcare learners document clinical encounters, reflect on decisions, and build a searchable learning portfolio.">
+<meta name="theme-color" content="#f5fbf3">
+<link rel="icon" href="assets/app-icon.png">
+<style>
+:root{--ink:#102c20;--muted:#587162;--green:#2db523;--green2:#71d44f;--blue:#1396bd;--paper:#f7fbf5;--line:rgba(16,44,32,.11);--shadow:0 30px 80px rgba(31,86,53,.16)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#f9fcf7 0,#eef9ec 45%,#f8fbf7 100%);overflow-x:hidden}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(249,252,247,.78);backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid var(--line)}.nav-inner{height:72px;max-width:1220px;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center}.brand img{height:auto}.brand .nav-app-icon{width:44px;height:44px;border-radius:12px;box-shadow:0 5px 15px rgba(20,100,55,.16)}.links{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:650}.links a{opacity:.74}.links a:hover{opacity:1}.pill{padding:11px 18px;border-radius:999px;background:var(--ink);color:#fff!important;opacity:1!important}
+.hero{min-height:100vh;padding:132px 24px 76px;position:relative;display:grid;place-items:center}.hero:before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(107,213,72,.22),rgba(24,162,188,.12) 48%,transparent 70%);filter:blur(10px);right:-180px;top:40px}.hero-grid{width:min(1180px,100%);display:grid;grid-template-columns:1.02fr .98fr;gap:72px;align-items:center;position:relative}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid rgba(45,181,35,.22);border-radius:999px;background:rgba(255,255,255,.7);font-size:13px;font-weight:750;letter-spacing:.05em;text-transform:uppercase}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(45,181,35,.11)}h1{font-size:clamp(58px,7vw,100px);line-height:.93;letter-spacing:-.065em;margin:28px 0 26px}.blue{color:var(--blue)}.gradient{background:linear-gradient(90deg,#187f62,#64ca35);-webkit-background-clip:text;color:transparent}.lede{font-size:clamp(19px,2vw,24px);line-height:1.5;color:var(--muted);max-width:620px}.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}.cta{padding:15px 22px;border-radius:999px;font-weight:750;border:1px solid var(--line);background:#fff}.cta.primary{background:var(--ink);color:#fff}.micro{margin-top:18px;font-size:13px;color:#71857a}.phone-stage{position:relative;height:700px;perspective:1200px}.iphone{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%) rotateY(-7deg) rotateX(2deg);width:355px;border:10px solid #111;border-radius:56px;background:#111;box-shadow:0 45px 100px rgba(17,58,36,.31);overflow:hidden;transition:transform .25s ease}.iphone img{width:100%;border-radius:45px}.float-card{position:absolute;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.86);backdrop-filter:blur(18px);box-shadow:0 18px 50px rgba(36,83,53,.15);border:1px solid rgba(255,255,255,.8);font-size:14px;font-weight:700;animation:float 5s ease-in-out infinite}.fc1{left:0;top:120px}.fc2{right:-8px;bottom:150px;animation-delay:-2.4s}@keyframes float{50%{transform:translateY(-12px)}}
+.section{padding:120px 24px}.wrap{max-width:1180px;margin:auto}.section-head{text-align:center;max-width:780px;margin:0 auto 64px}.kicker{font-size:14px;text-transform:uppercase;letter-spacing:.13em;font-weight:800;color:#3a8c49}.section h2{font-size:clamp(42px,5vw,70px);line-height:1.02;letter-spacing:-.052em;margin:14px 0 20px}.section-head p{font-size:20px;line-height:1.55;color:var(--muted)}
+.showcase{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.feature-card{min-height:520px;border-radius:34px;padding:28px;position:relative;overflow:hidden;background:rgba(255,255,255,.73);border:1px solid rgba(255,255,255,.95);box-shadow:0 18px 60px rgba(40,92,56,.10);transition:.35s}.feature-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}.feature-card h3{font-size:27px;letter-spacing:-.03em;margin:0 0 10px}.feature-card p{color:var(--muted);line-height:1.5;margin:0}.mini-phone{position:absolute;width:78%;left:11%;top:165px;border-radius:30px;overflow:hidden;box-shadow:0 24px 55px rgba(32,76,48,.2);transition:.35s}.feature-card:hover .mini-phone{transform:translateY(-8px) scale(1.02)}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin:110px 0}.story.reverse .copy{order:2}.story.reverse .device-stack{order:1}.copy h3{font-size:clamp(38px,4.5vw,62px);letter-spacing:-.05em;line-height:1.02;margin:0 0 20px}.copy p{font-size:19px;line-height:1.65;color:var(--muted)}.tag{display:inline-block;padding:8px 12px;border-radius:999px;background:#e3f6df;color:#257d2b;font-weight:760;font-size:13px;margin-bottom:18px}.device-stack{height:710px;position:relative}.device{position:absolute;width:350px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:48px;border:9px solid #111;overflow:hidden;background:#111;box-shadow:var(--shadow)}.device img{border-radius:39px}.device.back{transform:translate(-68%,-48%) rotate(-7deg);opacity:.72}.device.front{transform:translate(-32%,-52%) rotate(6deg)}
+.privacy{border-radius:48px;padding:72px;background:linear-gradient(135deg,#113b2b,#176548 60%,#2f9f45);color:#fff;display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:center;box-shadow:var(--shadow)}.privacy h2{margin-top:0}.privacy p{font-size:19px;line-height:1.65;color:rgba(255,255,255,.8)}.shield{font-size:150px;text-align:center;filter:drop-shadow(0 20px 30px rgba(0,0,0,.18))}.legal-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.legal-row a{padding:13px 18px;border-radius:999px;background:#fff;color:#153c2c;font-weight:750}
+footer{padding:42px 24px;border-top:1px solid var(--line)}.foot{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center;color:#657a6d;font-size:14px}.foot-links{display:flex;gap:20px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:980px){.hero-grid,.story,.privacy{grid-template-columns:1fr}.hero-copy{text-align:center}.lede{margin:auto}.cta-row{justify-content:center}.phone-stage{height:650px}.showcase{grid-template-columns:repeat(2,1fr)}.story.reverse .copy,.story.reverse .device-stack{order:initial}.copy{text-align:center}.privacy{text-align:center}.legal-row{justify-content:center}.shield{display:none}}
+@media(max-width:640px){.nav-inner{height:64px;padding:0 16px}.brand .nav-app-icon{width:38px;height:38px;border-radius:10px}.links a:not(.pill){display:none}.hero{padding-top:105px}.hero-grid{gap:24px}h1{font-size:56px}.phone-stage{height:580px}.iphone{width:300px}.float-card{font-size:12px}.showcase{grid-template-columns:1fr}.feature-card{min-height:650px}.mini-phone{width:72%;left:14%}.section{padding:84px 18px}.story{margin:75px 0;gap:30px}.device-stack{height:610px}.device{width:290px}.privacy{padding:44px 24px;border-radius:34px}.foot{flex-direction:column;text-align:center}.foot-links{flex-wrap:wrap;justify-content:center}}
+.float-card{display:none!important}
+:focus-visible{outline:3px solid rgba(19,150,189,.45);outline-offset:4px;border-radius:8px}
+.nav{transition:box-shadow .25s ease,background .25s ease}
+.nav.scrolled{background:rgba(249,252,247,.92);box-shadow:0 10px 34px rgba(28,67,44,.08)}
+.links a{position:relative;transition:opacity .2s ease}
+.links a:not(.pill):after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--green));transition:right .22s ease}
+.links a:not(.pill):hover:after{right:0}
+.hero-copy{max-width:650px}
+.cta{transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(25,74,46,.12)}
+.cta.primary:hover{box-shadow:0 16px 38px rgba(16,44,32,.25)}
+.feature-card:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.44),transparent 44%);pointer-events:none}
+.feature-card h3,.feature-card p{position:relative;z-index:2}
+.story .copy{max-width:520px}
+.contact-section{padding-top:20px}
+.contact-card{border-radius:40px;padding:56px 60px;background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.96);box-shadow:0 22px 70px rgba(39,89,55,.12);display:flex;align-items:center;justify-content:space-between;gap:36px}
+.contact-card h2{font-size:clamp(38px,4.6vw,62px);margin:12px 0 14px}
+.contact-card p{font-size:18px;color:var(--muted);line-height:1.6;margin:0;max-width:680px}
+.contact-button{flex:0 0 auto;padding:16px 24px;border-radius:999px;background:var(--ink);color:#fff;font-weight:780;box-shadow:0 15px 34px rgba(16,44,32,.2);transition:transform .22s ease,box-shadow .22s ease}
+.contact-button:hover{transform:translateY(-2px);box-shadow:0 20px 42px rgba(16,44,32,.28)}
+@media(max-width:980px){.contact-card{padding:48px;text-align:center;flex-direction:column}}
+@media(max-width:640px){
+  .hero:before{width:520px;height:520px;right:-270px;top:80px}
+  .lede{font-size:18px}
+  .eyebrow{font-size:11px;letter-spacing:.08em}
+  .feature-card{min-height:600px}
+  .contact-card{padding:38px 22px;border-radius:30px}
+  .contact-button{width:100%;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+
+
+.contact-email{display:inline-block;margin-top:12px;font-size:20px;font-weight:760;color:var(--green);text-decoration:underline;text-underline-offset:5px}
+
+
+
+.contact-status{min-height:22px;margin-top:10px;color:var(--green);font-weight:700}
+@media(max-width:980px){}
+
+</style>
+</head>
+<body>
+<header class="nav"><div class="nav-inner"><a class="brand" href="#top" aria-label="DiagnosED home"><img class="nav-app-icon" src="assets/app-icon.png" alt="DiagnosED app icon"></a><nav class="links" aria-label="Primary navigation"><a href="#features">Features</a><a href="#screens">Screens</a><a href="#privacy">Privacy</a><a href="support.html">Support</a><a href="#contact">Contact</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="hero-grid"><div class="hero-copy reveal"><div class="eyebrow"><span class="dot"></span>BUILT FOR LEARNERS IN HEALTHCARE</div><h1><span class="blue">Experience.</span><br><span class="gradient">Reflect. Grow.</span></h1><p class="lede">Turn every patient encounter into a lasting learning experience. Document cases, reflect on clinical decisions, and build a searchable portfolio that grows with you.</p><div class="cta-row"><a class="cta primary" href="#features">Explore DiagnosED</a><a class="cta" href="#privacy">Privacy by design</a></div><div class="micro">Educational use only · Do not enter patient identifiers</div></div><div class="phone-stage reveal" id="phoneStage"><div class="iphone" id="heroPhone"><img src="assets/login-screen.png" alt="DiagnosED login screen"></div></div></div></section>
+<section class="section" id="features"><div class="wrap"><div class="section-head reveal"><div class="kicker">One thoughtful workflow</div><h2>From encounter to insight.</h2><p>Capture the case, record your reasoning, illustrate key findings, and revisit what you learned.</p></div><div class="showcase">
+<article class="feature-card reveal"><h3>Log a Case</h3><p>Organize patient, history, examination, and assessment in a guided flow.</p><img class="mini-phone" src="assets/log-case-patient.png" alt="Log a Case screen"></article>
+<article class="feature-card reveal"><h3>Draw</h3><p>Create quick visual notes and illustrations alongside the encounter.</p><img class="mini-phone" src="assets/draw-case.png" alt="Draw Your Case screen"></article>
+<article class="feature-card reveal"><h3>Case Book</h3><p>Find previous cases by specialty, diagnosis, or tag.</p><img class="mini-phone" src="assets/case-book.png" alt="Case Book screen"></article>
+<article class="feature-card reveal"><h3>Reflections</h3><p>Capture the lessons and insights you want to carry forward.</p><img class="mini-phone" src="assets/reflections.png" alt="Reflections screen"></article>
+</div></div></section>
+<section class="section" id="screens"><div class="wrap">
+<div class="story"><div class="copy reveal"><span class="tag">Structured documentation</span><h3>A clear path through every case.</h3><p>Move from patient details to history, examination, assessment, management, and reflection. The guided interface keeps educational documentation organized without feeling rigid.</p></div><div class="device-stack reveal"><div class="device back"><img src="assets/log-case-history.png" alt="History entry screen"></div><div class="device front"><img src="assets/save-case.png" alt="Assessment and reflection screen"></div></div></div>
+<div class="story reverse"><div class="copy reveal"><span class="tag">Your learning archive</span><h3>See progress, not just records.</h3><p>The Case Hub brings logging, drawing, your Case Book, and reflections together. A visual progress view makes continued learning tangible.</p></div><div class="device-stack reveal"><div class="device back"><img src="assets/case-book.png" alt="Case Book"></div><div class="device front"><img src="assets/case-hub.png" alt="DiagnosED Case Hub"></div></div></div>
+</div></section>
+<section class="section" id="privacy"><div class="wrap"><div class="privacy reveal"><div><div class="kicker" style="color:#a8ef9d">Privacy by design</div><h2>Built for educational reflection.</h2><p>DiagnosED is designed for educational use. Users are instructed to enter only HIPAA-compliant educational information and never include patient identifiers. Review the complete policies before using the app.</p><div class="legal-row"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a></div></div><div class="shield">◈</div></div></div></section>
+<section class="section" id="download"><div class="section-head reveal"><img src="assets/app-icon.png" alt="DiagnosED app icon" style="width:118px;border-radius:28px;margin:0 auto 24px;box-shadow:0 18px 48px rgba(24,106,56,.25)"><h2>Make every encounter count.</h2><p>Experience, reflect, and grow with every clinical encounter.</p></div></section>
+
+
+<section class="section contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div>
+        <div class="kicker">Contact</div>
+        <h2>Questions about DiagnosED?</h2>
+        <p>For app support, privacy questions, or general inquiries:</p>
+        <a class="contact-email" href="mailto:infinotechs@gmail.com">infinotechs@gmail.com</a>
+        <div class="contact-status" id="contactStatus" role="status" aria-live="polite"></div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer><div class="foot"><div>© 2026 DiagnosED. Educational use only.</div><div class="foot-links"><a href="support.html">Support</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-use.html">Terms of Use</a><a href="mailto:infinotechs@gmail.com?subject=DiagnosED%20Inquiry">Contact</a></div></div></footer>
+<script>
+const nav=document.querySelector('.nav');const updateNav=()=>nav&&nav.classList.toggle('scrolled',window.scrollY>16);updateNav();window.addEventListener('scroll',updateNav,{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+const stage=document.getElementById('phoneStage'),phone=document.getElementById('heroPhone');if(stage&&phone&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){stage.addEventListener('mousemove',e=>{const r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;phone.style.transform=`translate(-50%,-50%) rotateY(${x*12-7}deg) rotateX(${-y*8+2}deg)`});stage.addEventListener('mouseleave',()=>phone.style.transform='translate(-50%,-50%) rotateY(-7deg) rotateX(2deg)')}
+
+</script>
+</body></html>
